@@ -22,4 +22,27 @@ public class ParentesSjekker {
                 (start == '{' && slutt == '}') ||
                 (start == '[' && slutt == ']');
     }
+
+    public boolean sjekkParenteser(String s) {
+
+        Stack<Character> stabel = new Stack<>();
+
+        for (char c : s.toCharArray()) {
+
+            if (erStartParentes(c)) {
+                stabel.push(c);
+            }
+            else if (erSluttParentes(c)) {
+                if (stabel.isEmpty()) {
+                    return false;
+                }
+                char start = stabel.pop();
+                if (!erParentesPar(start, c)) {
+                    return false;
+                }
+            }
+        }
+
+        return stabel.isEmpty();
+    }
 }
