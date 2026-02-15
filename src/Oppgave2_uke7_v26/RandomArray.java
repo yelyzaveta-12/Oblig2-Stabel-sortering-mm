@@ -1,0 +1,25 @@
+package Oppgave2_uke7_v26;
+
+import java.util.Random;
+
+public class RandomArray {
+
+    static Integer[] randomArray(int n, int max) {
+
+        Random random = new Random(123);
+        Integer[] a = new Integer[n];
+
+        for (int i = 0; i < n; i++) {
+            a[i] = random.nextInt(max);
+        }
+        return a;
+    }
+
+    static Integer[] equalArray(int n){
+        Integer[] a = new Integer[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = 5;
+        }
+        return a;
+    }
+}
